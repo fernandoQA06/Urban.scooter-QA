@@ -1,0 +1,353 @@
+Solicitação	Descrição da revisão	Resultado esperado	Status
+Criar um entregador: POST /api/v1/courier	"
+
+1. Ao fazer uma solicitação preenchendo todos os parametros corretamente (login, password, first name) o entregador é cadastrado no aplicativo.
+
+{
+    ""login"": ""ninja"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 201 Created.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador é cadastrado no aplicativo.	APROVADO
+
+"2. Ao fazer uma solicitação preenchendo apenas os valores dos parametros (login e password) corretamente e deixando o (first name)  com uma string vazia, o entregador é cadastrado no aplicativo.
+{
+    ""login"": ""kaneki"",
+    ""password"": ""1234"",
+    ""firstName"": """"
+}"	Codigo de resposta e status 201 Created.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador é cadastrado no aplicativo.	APROVADO
+
+"3. Ao fazer uma solicitação preenchendo apenas os valores dos parametros (login e first name) corretamente e deixando o (password)  com uma string vazia, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+{
+    ""login"": ""xablau"",
+    ""password"": """",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador não é cadastrado no aplicativo.	APROVADO
+	
+"4. Ao fazer uma solicitação preenchendo apenas os valores dos parametros (password e first name) corretamente e deixando o (login) com uma string vazia, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": """",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador não é cadastrado no aplicativo.	APROVADO
+
+"5. Ao fazer uma solicitação sem utilizar o valor e o parametro (first name)  sendo os outros parametros(login e password) preenchidos corretamente, o entregador é cadastrado no aplicativo.
+
+{
+    ""login"": ""ninja"",
+    ""password"": ""1234""
+    
+}"	Codigo de resposta e status 201 Created.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador é cadastrado no aplicativo.	APROVADO
+
+"6. Ao fazer uma solicitação sem utilizar o valor e o parametro (login)  sendo os outros parametros(first name e password) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador não é cadastrado no aplicativo.	APROVADO
+	
+"7. Ao fazer uma solicitação sem utilizar o valor e o parametro (password)  sendo os outros parametros(first name e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""xinxa"",
+    
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador não é cadastrado no aplicativo.	APROVADO
+
+"8. Ao fazer uma solicitação preenchendo todos os parametros corretamente (login, password, first name) e depois fazer outra solicitação utilizando o mesmo valor do parametro (login) utilizado na primeira solicitação, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""ninja"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 409 Сonflict.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador não é cadastrado no aplicativo.	APROVADO
+
+"9. Ao fazer uma solicitação preenchendo todos os parametros corretamente (login, password, first name) e depois fazer outra solicitação utilizando os mesmos valores dos parametros (first name e password) usados na primeira solicitação, o entregador é cadastrado no aplicativo.
+
+{
+    ""login"": ""abacaxi"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 201 Created.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador é cadastrado no aplicativo.	APROVADO
+
+"10. Ao fazer uma solicitação preenchendo o parametro (login) com letras latinas sendo o comprimento do texto de 2,3,5,9 e 10 caracteres, sendo tambem os outros dois parametros (password e first name) preenchidos corretamente, o entregador é cadastrado no aplicativo.
+
+(dados para o parametro login: ""ab"", ""abc"" , ""abcde"" , ""qwertyuio"" , ""qwertyuiop"")
+
+{
+    ""login"": ""ab"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 201 Created.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador é cadastrado no aplicativo.	APROVADO
+
+"11. Ao fazer uma solicitação preenchendo o parametro (login) com letras latinas sendo o comprimento do texto de 1,11,12,13 e 15 caracteres, sendo tambem os outros dois parametros (password e first name) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+
+Especifique no parametro (login) os textos “a”, “qwertyuiopa” , “qwertyuiopas”, “qwertyuiopasd” e “qwertyuiopasdfg” um de cada vez e envie a solicitação.
+
+{
+    ""login"": ""..."",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"12. Ao fazer uma solicitação preenchendo o parametro (login) com numeros (6783927), sendo tambem os outros dois parametros (password e first name) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""6783927"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"13. Ao fazer uma solicitação preenchendo o parametro (login) com espaços (abc defgh), sendo tambem os outros dois parametros (password e first name) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""abc defgh"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"14. Ao fazer uma solicitação preenchendo o parametro (login) com caracteres de um idioma exceto o latino (宮本武蔵宮本武蔵) , sendo tambem os outros dois parametros (password e first name) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""宮本武蔵宮本武蔵"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"15. Ao fazer uma solicitação preenchendo o parametro (login) com caracteres especiais (@#$%¨&@&) sendo tambem os outros dois parametros (password e first name) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""@#$%¨&@&"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"16. Ao fazer uma solicitação preenchendo o parametro (first name) com letras latinas sendo o comprimento do texto de 2,3,5,9 e 10 caracteres, sendo tambem os outros dois parametros (password e login) preenchidos corretamente, o entregador é cadastrado no aplicativo.
+
+Especifique no parametro (first name) os textos “ab”, “qwe” , “qwert”, “qwertyuio” e “qwertyuiop” um de cada vez e envie a solicitação.
+
+ Caso faça as solicitações sem reiniciar o servidor, certifique-se de não repetir o login.
+
+{
+    ""login"": ""fekuo"",
+    ""password"": ""1234"",
+    ""firstName"": ""....""
+}"	Codigo de resposta e status 201 Created.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador é cadastrado no aplicativo.	APROVADO
+
+"17. Ao fazer uma solicitação preenchendo o parametro (first name) com letras latinas sendo o comprimento do texto de 1,11,12,13 e 15 caracteres, sendo tambem os outros dois parametros (password e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+Especifique no parametro (first name) os textos “a”, “qwertyuiopa” , “qwertyuiopas”, “qwertyuiopasd” e “qwertyuiopasdfg” um de cada vez e envie a solicitação.
+
+ Caso faça as solicitações sem reiniciar o servidor, certifique-se de não repetir o login.
+
+{
+    ""login"": ""fekuo"",
+    ""password"": ""1234"",
+    ""firstName"": ""....""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"18. Ao fazer uma solicitação preenchendo o parametro (first name) com numeros (6783927), sendo tambem os outros dois parametros (password e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""kuja"",
+    ""password"": ""1234"",
+    ""firstName"": ""6783927""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"19. Ao fazer uma solicitação preenchendo o parametro (first name) com um texto contendo espaços (abc defgh), sendo tambem os outros dois parametros (password e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""njyta"",
+    ""password"": ""1234"",
+    ""firstName"": ""abc defgh""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"20. Ao fazer uma solicitação preenchendo o parametro (first name) com caracteres de um idioma exceto o latino (宮本武蔵宮本武蔵) , sendo tambem os outros dois parametros (password e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""nigfa"",
+    ""password"": ""1234"",
+    ""firstName"": ""宮本武蔵宮本武蔵""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"21. Ao fazer uma solicitação preenchendo o parametro (first name) com caracteres especiais (@#$%¨&@&) sendo tambem os outros dois parametros (password e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""nsada"",
+    ""password"": ""1234"",
+    ""firstName"": ""@#$%¨&@&""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"22. Ao fazer uma solicitação preenchendo o parametro (password) com numeros inteiros, sendo o comprimento do texto de 4 caracteres, sendo tambem os outros dois parametros (first name e login) preenchidos corretamente, o entregador é cadastrado no aplicativo.
+
+{
+    ""login"": ""gojou"",
+    ""password"": ""1234"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 201 Created.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		O entregador é cadastrado no aplicativo.	APROVADO
+
+"23. Ao fazer uma solicitação preenchendo o parametro (password) com numeros inteiros, sendo o comprimento do texto de 3 e 5 caracteres, sendo tambem os outros dois parametros (first name e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+Especifique no parametro (password) os textos “123” e “12345” um de cada vez e envie a solicitação.
+
+Caso faça as solicitações sem reiniciar o servidor, certifique-se de não repetir o login.
+
+{
+    ""login"": ""fedo"",
+    ""password"": ""...."",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"24. Ao fazer uma solicitação preenchendo o parametro (password) com letras latinas (abcd), sendo tambem os outros dois parametros (first name e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""nvf"",
+    ""password"": ""abcd"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"25. Ao fazer uma solicitação preenchendo o parametro (password) com numeros decimais (3,26), sendo tambem os outros dois parametros (first name e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""nfrv"",
+    ""password"": ""3,26"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"26. Ao fazer uma solicitação preenchendo o parametro (password) com numeros negativos (-324), sendo tambem os outros dois parametros (first name e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""nghtr"",
+    ""password"": ""-324"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"27. Ao fazer uma solicitação preenchendo o parametro (password) com numeros contendo espaços (89 7), sendo tambem os outros dois parametros (first name e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""nvnmuf"",
+    ""password"": ""89 7"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+
+"28. Ao fazer uma solicitação preenchendo o parametro (password) com caracteres especiais (@#$%) sendo tambem os outros dois parametros (first name e login) preenchidos corretamente, o entregador não é cadastrado no aplicativo e uma mensagem de erro é retornada.
+
+{
+    ""login"": ""nfgdxa"",
+    ""password"": ""@#$%"",
+    ""firstName"": ""saske""
+}"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		O entregador não é cadastrado no aplicativo.	REPROVADO
+			
+			
+Excluir um entregador DELETE /api/v1/courier/:id	
+
+"1. Ao criar uma conta de entregador e fazer uma solicitação para deleta-la utilizando o seu ID no parametro, a conta é deletada.
+{
+    ""id"": ""1""
+}"	Codigo de resposta e status 200 OK.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		A conta especificada é deletada no aplicativo.	APROVADO
+	
+"2. Ao fazer uma solicitação para excluir uma conta de entregador especificando no ID uma string vazia, uma mensagem de erro é retornada e nenhuma conta é apagada.
+
+{
+    ""id"": """"
+}
+"	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		Nenhuma conta é deletada no aplicativo.	APROVADO
+
+"3. Ao fazer uma solicitação para excluir uma conta de entregador utilizando um ID inexistente nenhuma conta é deletada e uma mensagem de erro é retornada.
+
+{
+    ""id"": ""acd87""
+}"	Codigo de resposta e status 404 Not Found.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		Nenhuma conta é deletada no aplicativo.	APROVADO
+
+4. Ao fazer uma solicitação para excluir uma conta de entregador sem utilizar o parametro nem o valor ID, nenhuma conta é deletada e uma mensagem de erro é retornada.	Codigo de resposta e status 400 Bad Request.	REPROVADO
+		Não ha erros na estrutura da resposta.	REPROVADO
+		Nenhuma conta é deletada no aplicativo.	APROVADO
+			
+			
+Obter um pedido pelo seu numero GET /api/v1/orders/track	
+
+"1. Ao criar um pedido e fazer uma solicitação para obter suas informações atraves de seu numero de rastreamento, é retornada informações sobre o pedido.
+
+?t=123456"	Codigo de resposta e status 200.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		É retornada informações sobre o pedido.	APROVADO
+	
+"2. Ao fazer uma solicitação para obter informações do pedido atraves de seu numero de rastreamento sem especificar nenhum valor no parametro (t), uma mensagem de erro é retornada e nenhuma informação sobre nenhum pedido é retornada.
+
+?t="	Codigo de resposta e status 400 Bad Request.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		Nenhuma informação sobre nenhum pedido é retornada.	APROVADO
+
+"3. Ao fazer uma solicitação para obter informações do pedido atraves de seu numero de rastreamento utilizando um numero de rastreamento inexistente no parametro (t), uma mensagem de erro é retornada e nenhuma informação sobre nenhum pedido é retornada.
+
+?t=098767637843321321324354354654"	Codigo de resposta e status 404 Not Found.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		Nenhuma informação sobre nenhum pedido é retornada.	APROVADO
+
+4. Ao fazer uma solicitação para obter informações do pedido atraves de seu numero de rastreamento sem utilizar o valor nem o parametro (t), uma mensagem de erro é retornada e nenhuma informação sobre nenhum pedido é retornada.	Codigo de resposta e status 400 Bad Request.	APROVADO
+		Não ha erros na estrutura da resposta.	APROVADO
+		Nenhuma informação sobre nenhum pedido é retornada.	APROVADO
