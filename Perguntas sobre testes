@@ -1,0 +1,74 @@
+1. Por que as práticas de design de teste não podem ser aplicadas imediatamente após o recebimento dos requisitos?
+Antes de fazer os testes você deve analisar os requisitos para que voce possa deixar bem definido quais serão seus objetos de teste, para ajudar na visualizção e no entendimento dos requisitos voce pode usar um mapa mental ou um fluxograma ou ate ambos, voce tambem deve aplicar a tecnica de particionamento de classes de equivalencia quando necessario, assim voce ja pode ir reduzindo os seus numeros de testes sem perder a eficacia.
+
+2. Em que situações as classes de equivalência e os valores-limite podem existir separadamente? Explique sua resposta e dê exemplos.
+"As classes de equivalencia so podem existir sem os valores limites em um conjunto de valores, que é um grupo de valores que não contem intervalos, e os valores limites vem desses intervalos das classes, ou seja, dos limites das classes.
+Por exemplo: ""O nome de usuario deve conter apenas letras do alfabeto latino""  nesse caso não teremos intervalos nem valores limites pois qualquer letra do alfabeto latino será aceita e qualquer outro caractere sera rejeitado.
+
+
+Ja os valores limites não podem existir sem uma classe de equivalencia, pois se não tivermos um conjunto ou um intervalo de valores não teremos limites.
+Por exemplo: "" É possivel inserir no campo qualquer caractere existente, sem nenhum limite em relação a quantidade de caractere"" sendo assim não teriamos classes de equivalencia, logo não teriamos intervalos, logo não teriamos valores limites."
+
+3. O que é equivalência? O que é uma classe de equivalência?
+Equivalencia são valores iguais, ou seja aqueles que são tratados da mesma forma pelo alicativo. Classe de equivalencia é na verdade um grupo de valores equivalentes, ou seja, aqueles que são tratados da mesma forma pelo aplicativo.
+
+4. É possível excluir verificações no meio do intervalo em favor de verificações nos limites dentro do intervalo? Explique sua resposta.
+Sim mas nem sempre, as vezes pode ser necessario testar um valor no meio da classe para garantir uma cobertura completa no entanto geralmente é nos limites que é apresentado um bug e essa tambem é uma boa forma de otimizar os testes quando não se tem muito tempo, de qualquer forma voce não vai estar deixando de testar um valor dentro do intervalo.
+
+5. Imagine que você precise testar um formulário onde cada campo possui um validador. O resultado do trabalho do formulário depende da combinação de dados nos campos. Quais práticas de design de teste devem ser usadas e por quê? Explique sua resposta.
+Você deve testar o formulario todo com se fosse um só objeto, voce tem que começar fazendo testes positivos preenchendo cada um dos campos de forma valida, ate porque se um dos campos não estiver funcionado corretamente o formulario  todo sera inutil ja que cada um tem seu validador proprio,  apos isso faça testes negativos e se certifique de que cada campo reage da forma esperada.
+
+6. Explique como você pode otimizar o número de testes ao trabalhar com tabelas de decisão. Explique sua resposta.
+É uma tecnica usada quando se tem muitas combinações diferentes para serem testadas. Para usa-la corretamente voce deve combinar os valores para que cada linha da tabela represente apenas uma unica combinação de valores para as condições identificadas, assim, voce não tera nenhum teste duplo na tabela de decisão, logo se algum dos valores presentes em alguma das linhas tiverem algum bug ele sera apresentado.
+
+7. Descreva como um checklist difere dos casos de teste. Dê exemplos de onde ambos são usados.
+Checklist é uma lista usada para saber o que esta sendo testado, qual o ambiente e qual o resultado do teste,uma lista mais simples, ja os casos de testes são listas bem mais detalhadas, com informações sobre como reproduzir o teste entre outras informações. O checklist é uma lista mais usada como uma forma de se organizar, ja os casos de testes como uma especie de relatorio para saberem o que esta sendo testado, como esta sendo testado, seus pre requisitos de testes, o seu resultado entre outras informações adicionais.
+
+8. Qual é a maneira correta de fazer um relatório de bug? Quais elementos de um relatório de bug são necessários? Por quê?
+Um relatorio deve apresentar todas informações necessarias para que quem esteja lendo saiba exatamente qual o bug, como reproduzi-lo, como diferencia-lo de outro bug parecido e onde ele ocorre, para isso voce precisa de alguns elementos importantes como um ID especifico por que sem ele sera dificil diferencia-lo de outro bug semelhante, um titulo exclusivo pelo mesmo motivo do ID, um passo a passo util de como reproduzir o bug para que torne mais simples a reprodução dele caso necessario, o seu ambiente para que seja facil saber onde ocorreu e o resultado real e o esperado para que seja possivel saber o que era para ter acontecido e o que aconteceu ao realizar a ação.
+
+9. Quais são as regras para escrever um título de relatório de bug? O que acontece se você criar um título ruim?
+"O titulo deve relatar o resultado real do teste, voce deve saber exatamente qual o bug ocorrido, onde e quando ele ocorre somente pelo titulo.
+Caso um titulo mal feito for escrito no relatorio, a pessoa que esta lendo pode ter dificuldade em saber qual lugar, onde e quando o bug ocorre, se caso ele tiver um titulo ambiguo com outro relatorio pode causar confusão a quem esta lendo."
+
+10. Em que consiste a arquitetura de um aplicativo cliente-servidor? Descreva, resumidamente, a funcionalidade de cada elemento.
+Se consiste basicamente no cliente, no servidor, na API e no banco de dados. Basicamente o cliente envia solicitações e o servidor analisa e envia as respostas, isso é feito via protocolo HTTP e HTTPS com a ajuda da API, ja o banco de dados é usado apenas quando necessario, ou seja quando o cliente envia uma solicitação em que o servidor precisa utilizar o banco de dados para obter a resposta necessaria.
+
+11. Descreva as etapas de processamento da solicitação após esta URL ser inserida na barra de endereços do navegador: https://google.com.
+O navegador envia uma solicitação a um servidor que traduz o nome de dominio (google.com) para um endereço IP que é o identificador onde contem as informações que foram solicitadas do site, então o navegador recebe essa resposta do back-end e responde com a pagina solicitada.
+
+12. O que é um cache? Por que ele é necessário? Qual regra deve ser seguida ao trabalhar com um cache no teste?
+São dados armazenados no navegador. São usados para que cada site responda mais rapido ja que o navegador não utiliza os dados do servidor para abrir o site pela segunda vez e sim os dados armazenados em cache. Você deve apagar o cache de um site para testa-lo pois o bug pode estar armazenado no cache e não mais no site, logo você estaria vendo as informações do site armazenadas em cache no seu navegador e não a nova versão que foi adicionada no servidor.
+
+"13. Responda às perguntas sobre os protocolos HTTP e HTTPS:
+- Qual é a diferença entre HTTP e HTTPS? Quando você não deve usar HTTP?
+- Quais componentes compõem uma solicitação HTTP: para que cada um serve?
+- Quais métodos HTTP você conhece? Para que eles servem? Dê exemplos de aplicação de diferentes métodos.
+- O que é um código de resposta HTTP? Quais códigos existem?"
+"A unica diferença é que o HTTPS criptografa a conexão, logo é mais seguro que o HTTP. Não se deve usar o protocolo HTTP quando há transferencia de dados sigilosos, pois ele não é tão seguro quanto o HTTPS.
+
+Uma solicitação HTTP é composta por uma linha inicial, onde é apresentada o metodo de solicitação, o caminho para o recurso e a versão do protocolo, tambem um cabeçalho de solicitação onde tem informações adicionais que o front-end envia ao back-end como a versão do navegador ou o tipo e o comprimento do conteudo, entre outras informações, e por ultimo um corpo de mensagem que são dados transmitidos pelo front-end geralmente encontrado em alguns metodos de solicitação.
+
+POST: Que é usado para enviar dados ao back end.
+GET: Que é usado para solicitar dados do back-end.
+PUT: Que é usado para alterar dados no back-end.
+DELETE: Que é usado para excluir dados no back-end.
+
+Por exemplo voce pode usar a solicitação  [GET] /api/v1/orders/:id para solicitar uma lista de produtos adicionado a um carrinho no aplicativo Urban.Grocers e tambem pode usar a mesma solicitação apenas mudando o metodo para excluir um carrinho [DELETE] /api/v1/orders/:id.
+
+Codigo de resposta é um numero de 3 digitos usado para indicar como o servidor processou a solicitação. Os codigos são 1xx que são codigos informativos, 2xx que são codigos de sucesso, 3xx que são codigos de redirecionamento, 4xx que são codigos de erro do cliente e 5xx que são codigos de erro do servidor."
+
+14. Descreva os componentes que podem compor uma URL. Pelo que cada um é responsável?
+"Dentre os componentes de uma URL estão o esquema, que é um protocolo usado para transmitir dados, o nome de usuario e senha que são informações sobre o usuario que solicita os dados, o nome do host que é um endereço exclusivo do app web, a porta que é o tipo especifico da conexão, o caminho que é o endereço de uma pagina especifica em um app web, os parametros de solicitação que são einformações adicionais enviadas ao servidor e a ancora que é um adicional que permite chegar diretamente à parte necessária de uma página web.
+
+Dentre todos esse apenas o esquema e o nome do host são obrigatórios para todas as URLs. "
+
+"15. Verifique se há erros no JSON
+Se houver, anexe a versão correta do arquivo."
+
+Link para a ilustração:
+https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/qa-final-project/US/7.1.1.png
+O parentese da linha 27 deveria ser apagado, e o valor File na linha 3 deveria entar entre aspas duplas.
+
+16. O que é um banco de dados relacional? Como ele difere de um não relacional?
+Banco de dados relacional são tabelas (linhas e colunas interligadas) vinculadas entre si. Já no não relacional os dados são armazenados de forma diferente como por exemplo em graficos ou em pares de "chave-valor". A diferença  entre eles é que no banco de dados relacional os dados são vinculados um ao outro.
