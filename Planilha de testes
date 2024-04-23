@@ -1,0 +1,49 @@
+#	Descrição da revisão	Ambiente (Google chrome) 1920X1080	Ambiente (opera) 1920X1080
+1	Se o usuário clicar em "Status do pedido" no cabeçalho da página de destino e inserir um valor valido de um pedido, no campo "numero do pedido" a tela Status do pedido é exibida. 	APROVADO	APROVADO
+2	Ao fazer um pedido na tela "fazer pedido" e clicar no botão "verificar status" na janela pop-up de pedido feito, o campo numero do pedido é preenchido automaticamente e o usuario é levado a tela "status do pedido".	REPROVADO	APROVADO
+3	Ao abrir a pagina "status do pedido" a logo do aplicativo é mostrada na cor preta na parte superior esquerda da pagina.	APROVADO	APROVADO
+4	Ao abrir a pagina "status do pedido" o botão "fazer pedido"  é mostrado destacado na cor preta na parte superior direita da pagina.	APROVADO	APROVADO
+5	Ao abrir a pagina "status do pedido" o botão "status do pedido" é mostrado na parte superior direita da pagina.	APROVADO	APROVADO
+6	Ao clicar na logo do aplicativo na pagina "status do pedido" o usuario é redirecionado para a pagina inicial do aplicativo.	APROVADO	APROVADO
+7	Ao clicar no botão "fazer pedido" na pagina "status do pedido" o usuario é redirecionado para a pagina de formulario de pedidos.	APROVADO	APROVADO
+8	Ao clicar no botão "status do pedido" na tela "status do pedido" e inserir um numero valido de outro pedido, a tela de status do pedido inserido é mostrada.	REPROVADO	REPROVADO
+9	"Se o usuário clicar em ""Status do pedido"" no cabeçalho da página ""status do pedido"" e inserir um valor invalido de um pedido no campo ""numero do pedido"", aparece uma mensagem de erro: ""Esse pedido não existe. Tem certeza de que o número está correto?"".
+"	APROVADO	APROVADO
+10	Ao abrir a pagina "status do pedido" é exibido no centro logo abaixo do cabeçalho uma barra de texto preenchida com o numero atual do pedido visualizado.	APROVADO	APROVADO
+11	Ao abrir a pagina "status do pedido" é exibido no canto direito abaixo do cabeçalho o botão visualizar.	APROVADO	APROVADO
+12	Ao preencher a barra de texto na pagina "status do pedido" com um numero valido de um outro pedido e clicar no botão "visualizar", a pagina mostra a visualização do outro pedido cujo o numero foi inserido.	APROVADO	APROVADO
+13	"Ao preencher a barra de texto na pagina ""status do pedido"" com um numero invalido de um outro pedido e clicar no botão ""visualizar"", aparece uma mensagem de erro: ""Esse pedido não existe. Tem certeza de que o número está correto?"".
+"	APROVADO	APROVADO
+14	Ao preencher a barra de texto na pagina "status do pedido" com o numero do mesmo pedido da visualização atual e clicar no botão "visualizar", nada acontece.	APROVADO	APROVADO
+15	Ao abrir a pagina "status do pedido" é exibido na parte esquerda da pagina dados do pedido do usuário: nome, sobrenome, endereço, estação de metro, telefone, quando entregar a scooter, periodo de locação, cor e comentario, nesta mesma ordem.	APROVADO	APROVADO
+16	Ao abrir a pagina "status do pedido" os dados do pedido do usuário são exibidos corretamente de acordo com o pedido.	REPROVADO	REPROVADO
+17	Nos dados do pedido na pagina "status do pedido" se o texto não couber em uma linha, ele será transferido para a segunda.	APROVADO	REPROVADO
+18	Ao abrir a pagina "status do pedido" é exibido a Ordem de status do pedido no canto direito da pagina.	APROVADO	APROVADO
+19	Existem quatro status na ordem de status do pedido.	APROVADO	APROVADO
+20	Ao fazer um pedido de uma scooter e abrir a pagina "status do pedido", o nome do primeiro status e sua descrição é: "A scooter está no depósito. O entregador vai retira-la em breve".	APROVADO	APROVADO
+21	Ao fazer um pedido de uma scooter e abrir a pagina "status do pedido", o nome do segundo status e sua descrição é: "O entregador esta a caminho. Numero de contato 0101".	APROVADO	APROVADO
+22	Ao fazer um pedido de uma scooter e abrir a pagina "status do pedido", o nome do terceiro status e sua descrição é: "O entregador chegou. Retirar a scooter e pagar o aluguel".	APROVADO	APROVADO
+23	Ao fazer um pedido de uma scooter e abrir a pagina "status do pedido", o nome do quarto status e sua descrição é: "OK, vamos dar uma volta. Ate o periodo do aluguel acabar".	APROVADO	APROVADO
+24	Ao abrir a pagina "status do pedido" o status atual da ordem de status do pedido esta destacado em preto. Enquanto o restante em cinza.	APROVADO	APROVADO
+25	Se o status for aprovado, na ordem de status do pedido, o número dele muda para um sinal de concluido.	APROVADO	APROVADO
+26	Apenas um status fica ativo por vez: isso mostra em que estágio está o pedido.
+	APROVADO	APROVADO
+27	Quando o usuario faz um pedido o status "A scooter está no depósito." Torna-se ativo.	APROVADO	APROVADO
+28	O status "O entregador está a caminho." Torna-se ativo quando o entregador confirma no aplicativo que aceitou o pedido.	APROVADO	APROVADO
+29	Quando o status "O entregador esta a caminho" está ativo, o nome do entregador aparece no prompt "O entregador ...... está a caminho."	APROVADO	APROVADO
+30	Se o nome do entregador for muito longo e o prompt não couber em uma linha, o texto será movido para a segunda linha quando o status "o estregador esta a caminho" esta ativo.	REPROVADO	REPROVADO
+31	O status "O entregador chegou." Torna-se ativo quando o entregador pressiona o botão "Concluído" no aplicativo.	REPROVADO	REPROVADO
+32	O status "Ok, vamos dar uma volta." Torna-se ativo quando o entregador confirma a finalização do pedido.	REPROVADO	REPROVADO
+33	Quando ativo, o texto"O aluguel termina em" aparece abaixo do título do status "OK, vamos dar uma volta". O tempo apresentado é calculado a partir do momento em que a scooter foi entregue ao usuário, levando em conta o número de dias.	REPROVADO	REPROVADO
+34	Ao abrir a pagina "status do pedido" o botão "cancelar pedido" é mostrado logo abaixo dos dados do pedido do usuario.	APROVADO	APROVADO
+35	"Ao clicar no botão ""Cancelar pedido"" uma janela pop-up aparece
+com o texto ""Deseja cancelar o pedido? tendo dois botões na janela pop-up:
+""Cancelar"" e ""Voltar""."	APROVADO	APROVADO
+36	Se o usuário clicar em "Voltar", no pop-up para cancelar o pedido ele retorna à página de status do pedido.	APROVADO	APROVADO
+37	Se o usuário clicar em "Cancelar pedido", uma janela pop-up aparece com o texto "Pedido cancelado. Sinta-se à vontade para voltar a qualquer momento :)" tendo um botão "Ok" na janela.	APROVADO	APROVADO
+38	Ao clicar no botão "Ok" no pop-up de pedido cancelado, o usuario é levado à página de destino.	APROVADO	APROVADO
+39	Ao cancelar um pedido na pagina "status do pedido" no aplicativo urban scooter, ele é excluído do sistema. O usuário não vai poder mais visualizá-lo.	REPROVADO	REPROVADO
+40	 É impossivel clicar no botão "Cancelar pedido" quando o pedido já estiver com o entregador.	APROVADO	APROVADO
+41	Se a scooter não for entregue até às 23h59 do dia solicitado pelo usuario para a entrega, o pedido vai ser considerado atrasado e o seu status muda para "O entregador está atrasado" e o texto muda para "Não será possível entregar a scooter a tempo. Para esclarecer o status do seu pedido, ligue para o suporte: 0101".	APROVADO	APROVADO
+42	Se um pedido estiver atrasado o seu status atual e sua descrição serão destacadas em vermelho.	APROVADO	APROVADO
+43	Quando a entrega esta atrasada, nenhum texto de status muda, a não ser o status ativo no momento.	REPROVADO	REPROVADO
