@@ -4,9 +4,9 @@ Descrição Bem-vindo ao repositório de Garantia de Qualidade (QA) do Urban Sco
 ## Recursos
 Relatório de Bugs no Jira: Acesse os relatórios de bugs no Jira para reportar e rastrear problemas identificados durante os testes. https://fernandorodrigues0606.atlassian.net/jira/software/c/projects/FRST5PF/issues?jql=project%20%3D%20%22FRST5PF%22%20ORDER%20BY%20created%20DESC
 
-Mapa Mental de Testes: Utilize o mapa mental como guia visual para organizar e planejar os testes do Urban Scooter.
+Mapa Mental de Testes: Utilizei o mapa mental como guia visual para organizar e planejar os testes do Urban Scooter.
 
-Planilha de Testes: planilha abrangente que inclui testes de interface, funcionalidade e API. Use-a para garantir uma cobertura completa nos seus testes.
+Planilha de Testes: planilha abrangente que inclui testes de interface, funcionalidade e API. Usei para garantir uma cobertura completa nos seus testes.
 
 Testes API .json: Explore os testes de API em formato JSON. Eles são essenciais para validar a integração e funcionalidades da API do Urban Scooter.
 
